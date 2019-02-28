@@ -13,13 +13,10 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-       // \DB::enableQueryLog();
-        $questions = Question::with('user')->latest()->paginate(10);     //Display 5 q's per page
-        //view('questions.index', compact('questions'))->render();
-        return view('questions.index', compact('questions'));
+    {        
+        $questions = Question::with('user')->latest()->paginate(10);
 
-        // dd(\DB::getQueryLog());
+        return view('questions.index', compact('questions'));        
     }
 
     /**
