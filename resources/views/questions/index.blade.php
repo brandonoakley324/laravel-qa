@@ -24,7 +24,7 @@
                                     <strong>{{ $question->votes }}</strong> {{ str_plural('vote', $question->votes) }}
                                 </div>                            
                                 <div class="status {{ $question->status }}">
-                                    <strong>{{ $question->answers }}</strong> {{ str_plural('answer', $question->answers) }}
+                                    <strong>{{ $question->answers_count }}</strong> {{ str_plural('answer', $question->answers_count) }}
                                 </div>                            
                                 <div class="view">
                                     {{ $question->views . " " . str_plural('view', $question->views) }}
@@ -33,7 +33,7 @@
                             <div class="media-body">
                                 <div class="d-flex align-items-center">
                                 <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
-                                <div class="ml-auto">
+                                <div class="ml-auto"> <!-- Update below is defined in the question policy -->
                                 @can('update', $question)
                                     <a href="{{ route('questions.edit' , $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
                                 @endcan
